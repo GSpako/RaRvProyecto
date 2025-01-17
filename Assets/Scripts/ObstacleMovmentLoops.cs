@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
 public class ObstacleMovementLoops : MonoBehaviour
@@ -10,6 +8,8 @@ public class ObstacleMovementLoops : MonoBehaviour
     public Transform Object;
     public float duration = 1f;
     public int segmentCount = 10; // Number of segments for the line
+    public float oscillationAmplitude = 1f; // Amplitude of the vertical oscillation
+    public float oscillationFrequency = 2f; // Frequency of the vertical oscillation
 
     private float startTime;
     private bool forward = true;
@@ -23,32 +23,41 @@ public class ObstacleMovementLoops : MonoBehaviour
         easeCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
     }
 
+    private float vertical_function(float x)
+    {
+        return -8 * x * x + 8 * x;
+    }
+
     // Update is called once per frame
     void Update()
     {
         float elapsed = (Time.time - startTime) / duration;
         float per = forward ? elapsed : 1f - elapsed;
 
-        // Verificar si es necesario cambiar la dirección
+        // Switch direction if we reach the end
         if (elapsed >= 1f)
         {
             forward = !forward;
             startTime = Time.time; // Reset start time
         }
 
-        // Restringimos entre 0 y 1 para que no sea un movimiento siempre dentro de los mismos rangoss
+        // Clamp progress between 0 and 1
         per = Mathf.Clamp01(per);
 
-        // Calculamos el instante de tiempo usando la curva de animación
+        // Evaluate the easing curve
         float easedPer = easeCurve.Evaluate(per);
 
-        // Aplicando la transformación lineal con el tiempo calculado para realizar el movimiento
-        Object.position = Vector3.Lerp(StartPos.position, EndPos.position, easedPer);
+        // Linear interpolation for horizontal movement
+        Vector3 linearPosition = Vector3.Lerp(StartPos.position, EndPos.position, easedPer);
+
+
+        // Apply the combined position
+        Object.position = new Vector3(linearPosition.x, vertical_function(per), linearPosition.z);
     }
 
     void DrawSegmentedLine(Vector3 start, Vector3 end, int segments)
     {
-        Gizmos.color = Color.blue; 
+        Gizmos.color = Color.blue;
         // Calculate the segment length
         for (int i = 0; i < segments; i++)
         {
@@ -68,14 +77,12 @@ public class ObstacleMovementLoops : MonoBehaviour
         }
     }
 
-
     private void OnDrawGizmos()
     {
         DrawSegmentedLine(StartPos.position, EndPos.position, segmentCount);
 
         Gizmos.color = Color.gray;
-        Gizmos.DrawCube(StartPos.position, Vector3.one/8);
-        Gizmos.DrawCube(EndPos.position, Vector3.one/8);
-
+        Gizmos.DrawCube(StartPos.position, Vector3.one / 8);
+        Gizmos.DrawCube(EndPos.position, Vector3.one / 8);
     }
 }
