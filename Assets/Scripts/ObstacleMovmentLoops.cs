@@ -28,6 +28,16 @@ public class ObstacleMovementLoops : MonoBehaviour
         return -8 * x * x + 8 * x;
     }
 
+    private float horizontal_function(float x)
+    {
+        float a = 14.625f;
+        float b = -23.25f;
+        float c = 10.625f;
+        float d = -1.0f;
+
+        return a * x * x * x + b * x * x + c * x + d;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -44,15 +54,10 @@ public class ObstacleMovementLoops : MonoBehaviour
         // Clamp progress between 0 and 1
         per = Mathf.Clamp01(per);
 
-        // Evaluate the easing curve
-        float easedPer = easeCurve.Evaluate(per);
-
-        // Linear interpolation for horizontal movement
-        Vector3 linearPosition = Vector3.Lerp(StartPos.position, EndPos.position, easedPer);
-
+        float easedper = easeCurve.Evaluate(per);
 
         // Apply the combined position
-        Object.position = new Vector3(linearPosition.x, vertical_function(per), linearPosition.z);
+        Object.position = new Vector3(horizontal_function(easedper), vertical_function(easedper), StartPos.position.z);
     }
 
     void DrawSegmentedLine(Vector3 start, Vector3 end, int segments)
