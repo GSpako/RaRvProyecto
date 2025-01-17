@@ -7,7 +7,7 @@ public class ObstacleMovementLoops : MonoBehaviour
     public Transform EndPos;
     public Transform Object;
     public float duration = 1f;
-    public int segmentCount = 10; // Number of segments for the line
+    public int segmentCount = 30; // Number of segments for the line
     public float oscillationAmplitude = 1f; // Amplitude of the vertical oscillation
     public float oscillationFrequency = 2f; // Frequency of the vertical oscillation
 
@@ -67,18 +67,21 @@ public class ObstacleMovementLoops : MonoBehaviour
         for (int i = 0; i < segments; i++)
         {
             // Skip every other segment to create spaces
-            if (i % 2 == 0)
-            {
+            //if (i % 2 == 0)
+            //{
                 float t1 = (float)i / segments;
                 float t2 = (float)(i + 1) / segments;
 
-                // Get the start and end points of the segment
                 Vector3 point1 = Vector3.Lerp(start, end, t1);
+                point1.x = horizontal_function(t1);
+                point1.y = vertical_function(t1);
                 Vector3 point2 = Vector3.Lerp(start, end, t2);
+                point2.x = horizontal_function(t2);
+                point2.y = vertical_function(t2);
 
                 // Draw the segment
                 Gizmos.DrawLine(point1, point2);
-            }
+            //}
         }
     }
 
