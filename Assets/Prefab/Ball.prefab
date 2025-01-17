@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 99c18e2c-00ac-45fc-8bea-a223ca2fcc07
+  instanceId: a0efc29c-75fc-43e5-a3b0-c394421922c7
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -173,7 +173,7 @@ Transform:
   m_GameObject: {fileID: 8809633146918392040}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.07, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: 1ce602a8-829c-4537-ac55-7ced5982c29e
+  instanceId: f5e7152b-a511-4a74-b6f8-c475a8145122
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -349,7 +349,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.22772254
+        value: 0.17739905
         inSlope: 0
         outSlope: 0
         tangentMode: 0

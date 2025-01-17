@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
 public class ObstacleMovment : MonoBehaviour
@@ -13,37 +14,36 @@ public class ObstacleMovment : MonoBehaviour
     private float startTime;
     private bool forward = true;
 
+    private AnimationCurve easeCurve;
+
     // Start is called before the first frame update
     void Start()
     {
         startTime = Time.time; // Initialize the start time
+        easeCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float per = (Time.time - startTime) / duration;
+        float elapsed = (Time.time - startTime) / duration;
+        float per = forward ? elapsed : 1f - elapsed;
 
-        if (forward)
+        // Verificar si es necesario cambiar la dirección
+        if (elapsed >= 1f)
         {
-            Object.position = Vector3.Lerp(StartPos.position, EndPos.position, per);
-            
-            if (per >= 1f)
-            {
-                forward = !forward;
-                startTime = Time.time; // Reset start time
-            }
+            forward = !forward;
+            startTime = Time.time; // Reset start time
         }
-        else
-        {
-            Object.position = Vector3.Lerp(EndPos.position, StartPos.position, per);
 
-            if (per >= 1f)
-            {
-                forward = !forward;
-                startTime = Time.time; // Reset start time
-            }
-        }
+        // Restringimos entre 0 y 1 para que no sea un movimiento siempre dentro de los mismos rangoss
+        per = Mathf.Clamp01(per);
+
+        // Calculamos el instante de tiempo usando la curva de animación
+        float easedPer = easeCurve.Evaluate(per);
+
+        // Aplicando la transformación lineal con el tiempo calculado para realizar el movimiento
+        Object.position = Vector3.Lerp(StartPos.position, EndPos.position, easedPer);
     }
 
     void DrawSegmentedLine(Vector3 start, Vector3 end, int segments)
