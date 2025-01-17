@@ -6289,8 +6289,10 @@ MonoBehaviour:
   StartPos: {fileID: 251422956}
   EndPos: {fileID: 1096998865}
   Object: {fileID: 1656645660}
-  duration: 1
+  duration: 3
   segmentCount: 10
+  oscillationAmplitude: 1
+  oscillationFrequency: 2
 --- !u!1 &553213939
 GameObject:
   m_ObjectHideFlags: 0
@@ -24732,6 +24734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7995337726812216889, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995337726812216889, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
+        type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
@@ -24749,6 +24756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9023170496678964810, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6633120215869785861, guid: 95fca47f24ef1db4ea4fdb8d004dcc88, type: 3}
