@@ -27,7 +27,7 @@ public class GoalDetection : MonoBehaviour
 
     IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
 
         // Get the current scene's name
         string currentSceneName = SceneManager.GetActiveScene().name;
