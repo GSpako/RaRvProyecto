@@ -66,9 +66,6 @@ public class ObstacleMovementLoops : MonoBehaviour
         // Calculate the segment length
         for (int i = 0; i < segments; i++)
         {
-            // Skip every other segment to create spaces
-            //if (i % 2 == 0)
-            //{
                 float t1 = (float)i / segments;
                 float t2 = (float)(i + 1) / segments;
 
@@ -81,7 +78,6 @@ public class ObstacleMovementLoops : MonoBehaviour
 
                 // Draw the segment
                 Gizmos.DrawLine(point1, point2);
-            //}
         }
     }
 
