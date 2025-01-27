@@ -9,5 +9,6 @@ public class BallMiss : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         MissManager.Instance.BallMissed();
+        Destroy(other.gameObject);
     }
 }

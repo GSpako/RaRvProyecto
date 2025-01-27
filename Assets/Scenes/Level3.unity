@@ -11879,6 +11879,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6633120215869785861, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
+        type: 3}
+      propertyPath: duration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6784425718017790158, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11937,7 +11942,7 @@ PrefabInstance:
     - target: {fileID: 7995337726812216889, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 7995337726812216889, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
@@ -11952,7 +11957,7 @@ PrefabInstance:
     - target: {fileID: 9023170496678964810, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18328,6 +18333,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6633120215869785861, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
+        type: 3}
+      propertyPath: duration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6784425718017790158, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18378,10 +18388,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7995337726812216889, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.52
+      objectReference: {fileID: 0}
     - target: {fileID: 9023170496678964810, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: -0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24357,6 +24372,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 6633120215869785861, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
+        type: 3}
+      propertyPath: duration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6784425718017790158, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24410,7 +24430,7 @@ PrefabInstance:
     - target: {fileID: 7995337726812216889, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 7995337726812216889, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
@@ -24430,7 +24450,7 @@ PrefabInstance:
     - target: {fileID: 9023170496678964810, guid: 95fca47f24ef1db4ea4fdb8d004dcc88,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -4.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
