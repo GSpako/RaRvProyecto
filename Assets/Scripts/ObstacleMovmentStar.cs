@@ -8,8 +8,8 @@ public class ObstacleMovementStar : MonoBehaviour
     public Transform Object;
     public float duration = 1f; // Time to complete one loop
     public int points = 5; // Number of star points
-    public float outerRadius = 3f; // Radius for the starheads
-    public float innerRadius = 0.8f; // Radius for the inner points of the star
+    public float outerRadius = 2.5f; // Radius for the starheads
+    public float innerRadius = 0.5f; // Radius for the inner points of the star
 
     private float startTime;
     private bool forward = true;
@@ -21,6 +21,7 @@ public class ObstacleMovementStar : MonoBehaviour
     {
         startTime = Time.time; // Initialize the start time
         easeCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+
     }
 
     private Vector3 StarFunction(float t)
@@ -58,7 +59,7 @@ public class ObstacleMovementStar : MonoBehaviour
         // Interpolate between current and next vertex
         Vector3 interpolatedPos = Vector3.Lerp(currentPos, nextPos, localT);
 
-        return new Vector3(interpolatedPos.x, interpolatedPos.y, StartPos.position.z);
+        return new Vector3(interpolatedPos.x, interpolatedPos.y +2f, StartPos.position.z);
     }
 
     // Update is called once per frame

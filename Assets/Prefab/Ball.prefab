@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: a0efc29c-75fc-43e5-a3b0-c394421922c7
+  instanceId: ebe485f4-2263-47ac-b34e-735eafaea19b
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: f5e7152b-a511-4a74-b6f8-c475a8145122
+  instanceId: 189ddaa9-49ac-4faf-bbd9-90d4254d3dd4
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -339,7 +339,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 0.4
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3

@@ -5,12 +5,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GoalDetection : MonoBehaviour
 {
     public AudioSource sound;
     public Transform particlesPosition;
     public ParticleSystem particles;
+    public GameObject Menu;
+
+    string nextSceneName = "";
+    int sceneCount = 0;
+    private void Awake()
+    {
+        sceneCount = SceneManager.sceneCountInBuildSettings;
+    }
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -21,13 +31,6 @@ public class GoalDetection : MonoBehaviour
         particlesPosition.position = other.transform.position;
         particles.Play();
 
-        StartCoroutine(LoadNextScene());
-        Destroy(other.gameObject);
-    }
-
-    IEnumerator LoadNextScene()
-    {
-        yield return new WaitForSeconds(2);
 
         // Get the current scene's name
         string currentSceneName = SceneManager.GetActiveScene().name;
@@ -43,16 +46,32 @@ public class GoalDetection : MonoBehaviour
 
             // Increment the number
             int nextNumber = currentNumber + 1;
+            if(nextNumber > sceneCount)
+            {
+                Menu.SetActive(true);
+            }
+            else
+            {
+                // Construct the next scene name
+                nextSceneName = baseName + nextNumber;
 
-            // Construct the next scene name
-            string nextSceneName = baseName + nextNumber;
-
-            // Load the next scene
-            SceneManager.LoadScene(nextSceneName);
+                StartCoroutine(LoadNextScene());
+            }
+            
         }
         else
         {
-            Debug.LogError("Scene name does not end with a number. Cannot determine the next scene.");
+            Menu.SetActive(true);
         }
+
+        Destroy(other.gameObject);
+    }
+
+    IEnumerator LoadNextScene()
+    {
+        yield return new WaitForSeconds(2);
+
+            // Load the next scene
+            SceneManager.LoadScene(nextSceneName);
     }
 }
